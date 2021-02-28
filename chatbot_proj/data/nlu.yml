@@ -66,6 +66,8 @@ nlu:
 - intent: where_to_eat
   examples: |
     - I'm Hungry
+    - hungry
+    - food
     - Where should we eat
     - Any recommendations
     - what restaurant do you recommend

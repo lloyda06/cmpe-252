@@ -5,8 +5,15 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
+  - check_in
+  - parking
+  - where_to_eat
+  - italian
+  - american
+  - asian
+  - casual_family
+  - bar
+  - fancy
   - bot_challenge
 
 responses:
@@ -68,6 +75,21 @@ forms:
       - type: from_intent
         intent: fancy
         value: fancy
+
+slots:
+  cuisine:
+    type: categorical
+    values:
+      - italian
+      - asian
+      - american
+  atmosphere:
+    type: categorical
+    values:
+      - casual_family
+      - bar
+      - fancy
+
 
 session_config:
   session_expiration_time: 60

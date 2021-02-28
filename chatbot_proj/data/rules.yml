@@ -22,12 +22,6 @@ rules:
   - intent: greet
   - action: utter_greet
 
-- rule: activate restaurant form
-  steps:
-    - intent: where_to_eat   # intent that triggers form activation
-    - action: restaurant_form      # run the form
-    - active_loop: restaurant_form # this form is active
-
 - rule: submit form
   condition:
   - active_loop: restaurant_form   # this form must be active
