@@ -1,0 +1,37 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_talk_to_person
+
+- rule: Help with parking
+  steps:
+  - intent: parking
+  - action: utter_park
+
+- rule: Greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: activate restaurant form
+  steps:
+    - intent: where_to_eat   # intent that triggers form activation
+    - action: restaurant_form      # run the form
+    - active_loop: restaurant_form # this form is active
+
+- rule: submit form
+  condition:
+  - active_loop: restaurant_form   # this form must be active
+  steps:
+    - action: restaurant_form      # run the form
+    - active_loop: null            # the form is no longer active because it has been filled
+    - action: utter_restaurant         # action to take after the form is complete

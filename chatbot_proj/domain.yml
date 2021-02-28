@@ -1,0 +1,74 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+responses:
+  utter_greet:
+  - text: "Welcome to SJSU Hotel.  How can I help you?"
+
+  utter_checkin:
+  - text: "Last name for reservation?"
+
+  utter_thank_you:
+  - text: "Thank you, I'll take care of that for you."
+
+  utter_park:
+  - text: "Did you find parking or would you like valet?"
+
+  utter_bags:
+  - text: "Do you have any bags we can carry?"
+
+  utter_food:
+  - text: "What type of food do you like?:"
+
+  utter_atmosphere:
+  - text: "What atmosphere are you looking for?"
+
+  utter_restaurant:
+  - text: "I have the perfect {cuisine} {atmosphere} restaurant for you."
+
+  utter_help:
+  - text: "How can I help you?"
+
+  utter_anything_else:
+  - text: "Can I help you with anything else today?"
+
+  utter_goodbye:
+  - text: "Goodbye, enjoy your stay!"
+
+  utter_talk_to_person:
+  - text: "I am a bot, please see the front desk."
+
+forms:
+  restaurant_form:
+    cuisine:
+      - type: from_intent
+        intent: italian
+        value: italian
+      - type: from_intent
+        intent: american
+        value: american
+      - type: from_intent
+        intent: asian
+        value: asian
+    atmosphere:
+      - type: from_intent
+        intent: casual_family
+        value: casual
+      - type: from_intent
+        intent: bar
+        value: bar
+      - type: from_intent
+        intent: fancy
+        value: fancy
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

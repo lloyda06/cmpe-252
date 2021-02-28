@@ -1,0 +1,24 @@
+version: "2.0"
+
+stories:
+
+- story: greet path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: check in
+  steps:
+  - intent: check_in
+  - action: utter_checkin
+  - action: utter_thank_you
+  - action: utter_bags
+  - intent: affirm
+  - action: utter_thank_you
+
+- story: parking
+  steps:
+  - intent: parking
+  - action: utter_park
+  - intent: affirm
+  - action: utter_thank_you
