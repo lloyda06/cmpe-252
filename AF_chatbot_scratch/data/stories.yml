@@ -1,0 +1,58 @@
+version: "2.0"
+
+stories:
+
+- story: happy path 1
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - name: null
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  
+- story: happy path name
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - name: This can be anything
+  - action: utter_greet_name
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+  
+- story: fight path 1
+  steps:
+  - intent: fight
+  - action: utter_warcry
+  - intent: fight
+  - action: utter_warcry
+
+- story: fight path 2
+  steps:
+  - intent: fight
+  - action: utter_warcry
+  - intent: reconcile
+  - action: utter_no_fight
+  
+- story: hello world
+  steps:
+  - intent: hello_world
+  - action: action_hello_world

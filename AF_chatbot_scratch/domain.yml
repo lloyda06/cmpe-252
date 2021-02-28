@@ -1,0 +1,128 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- fight:
+    use_entities: true
+- reconcile:
+    use_entities: true
+- hello_world:
+    use_entities: true
+- check_time:
+    use_entities: true
+- ask_bathroom:
+    use_entities: true
+- make_reservation:
+    use_entities: true
+- inform:
+    use_entities: true
+entities:
+  - name
+slots:
+  name:
+    type: text
+    influence_conversation: true
+  num_guests:
+    type: text
+    influence_conversation: false
+  checkin_date:
+    type: text
+    influence_conversation: false
+  length_of_stay:
+    type: text
+    influence_conversation: false
+  num_beds:
+    type: text
+    influence_conversation: false
+  ground_floor:
+    type: bool
+    influence_conversation: false
+  
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_warcry:
+  - text: YOU WILL NEVER DEFEAT ME, HUMAN!!
+  - text: I will render you to dust!
+  utter_no_fight:
+  - text: Peace is a better choice. Especially for you.
+  - text: Wise choice, mortal.
+  utter_bathroom_directions:
+  - text: Down the hall to the right.
+  utter_greet_name:
+  - text: Hello {name}, nice to meet you.
+  utter_ask_name:
+  - text: What is your name?
+  utter_ask_num_guests:
+  - text: How many guests will be staying with us?
+  utter_ask_checkin_date:
+  - text: When would you like to check in?
+  utter_ask_length_of_stay:
+  - text: How many nights will you be staying with us?
+  utter_ask_num_beds:
+  - text: How many beds would you like?
+  utter_ask_ground_floor:
+  - text: Would you like a room on the ground floor?
+  utter_start_reservation:
+  - text: Ok, I'll need to get some information to complete your reservation.
+  utter_reservation_complete:
+  - text: Ok, your reservation is complete.
+  utter_reservation_slots_values:
+  - text: "I've made a reservation for {name} with:\n
+               - Guests: {num_guests}\n
+               - Number of beds: {num_beds}\n
+               - Check-in date: {checkin_date}\n
+               - Length of stay: {length_of_stay} nights\n
+               - On ground floor: {ground_floor}"
+actions:
+- action_hello_world
+- action_report_current_time
+forms:
+  make_reservation_form:
+    name:
+      - type: from_entity
+        entity: name
+    num_guests:
+      - type: from_text
+    checkin_date:
+      - type: from_text
+    length_of_stay:
+      - type: from_text
+    num_beds:
+      - type: from_text
+    ground_floor:
+      - type: from_intent
+        intent: affirm
+        value: true
+      - type: from_intent
+        intent: deny
+        value: false
+e2e_actions: []

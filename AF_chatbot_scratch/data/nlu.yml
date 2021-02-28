@@ -1,0 +1,180 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hi, I'm [Anthony](name)
+    - hi, I'm [Anya](name)
+    - hi, I'm [Bart](name)
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    
+- intent: fight
+  examples: |
+    - Want to fight?
+    - Who do you think you are?
+    - I'm gonna kill you, bot!
+    - DIE
+
+- intent: reconcile
+  examples: |
+    - I'm sorry
+    - let's not fight
+    - you win
+    - let's be friends
+    
+- intent: hello_world
+  examples: |
+    - Say hello world.
+    - hello world
+    - what is your very first program
+    
+- intent: check_time
+  examples: |
+    - do you know the time?
+    - what time is it?
+    - can you tell me the time?
+    - what is the time?
+    
+- intent: ask_bathroom
+  examples: |
+    - where is the bathroom?
+    - do you have a restroom I could use?
+    - how do i get to the restroom?
+    - where is your restroom?
+    - where is the nearest toilet?
+    
+- intent: make_reservation
+  examples: |
+    - I'd like to reserve a room
+    - do you have any rooms available tonight?
+    - do you have any rooms available?
+    - any vacancy?
+    - make reservation
+    - reservation
+    - can I reserve a room?
+    
+- intent: inform
+  examples: |
+    - [Anthony Fisher](name)
+    - [Adam](name)
+    - [Marshall](name)
+    - [Anya](name)
+    - [Stephanie](name)
+    - [Julia](name)
+    - one
+    - two
+    - three
+    - four
+    - five
+    - six
+    - seven
+    - eight
+    - nine
+    - ten
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 3 guests
+    - 8 guests
+    - ten guests
+    - today
+    - tomorrow
+    - tonight
+    - january 10
+    - february 18
+    - march 22
+    - april 17
+    - may 5

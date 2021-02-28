@@ -1,0 +1,39 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Tell the time when asked
+  steps:
+  - intent: check_time
+  - action: action_report_current_time
+  
+- rule: Bathroom directions
+  steps:
+  - intent: ask_bathroom
+  - action: utter_bathroom_directions
+  
+- rule: Activate make reservation form
+  steps:
+    - intent: make_reservation
+    - action: utter_start_reservation
+    - action: make_reservation_form
+    - active_loop: make_reservation_form
+    
+- rule: Submit make reservation form
+  condition:
+  - active_loop: make_reservation_form
+  steps:
+    - action: make_reservation_form
+    - active_loop: null
+    - action: utter_reservation_complete
+    - action: utter_reservation_slots_values
