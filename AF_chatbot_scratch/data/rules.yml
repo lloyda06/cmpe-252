@@ -37,3 +37,35 @@ rules:
     - active_loop: null
     - action: utter_reservation_complete
     - action: utter_reservation_slots_values
+    
+- rule: Activate cancel reservation form
+  steps:
+    - intent: cancel_reservation
+    - action: utter_start_reservation_cancel
+    - action: cancel_reservation_form
+    - active_loop: cancel_reservation_form
+    
+- rule: Submit cancel reservation form
+  condition:
+  - active_loop: cancel_reservation_form
+  steps:
+    - action: cancel_reservation_form
+    - active_loop: null
+    - action: utter_reservation_cancel_complete
+    
+# - rule: Activate check mail form
+  # steps:
+    # - intent: get_mail
+    # - action: action_check_mail
+    # - slot_was_set:
+      # - has_mail: true
+    # - action: get_mail_form
+    # - active_loop: get_mail_form
+
+# - rule: End check mail form 
+  # condition:
+  # - active_loop: get_mail_form
+  # steps:
+    # - action: get_mail_form
+    # - active_loop: null
+    # - action: utter_deliver_mail

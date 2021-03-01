@@ -11,7 +11,9 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
 from datetime import datetime
+import random
 
 class ActionHelloWorld(Action):
 
@@ -46,3 +48,19 @@ class ReportCurrentTime(Action):
         dispatcher.utter_message(text=output)
         
         return []
+        
+class CheckMail(Action):
+    
+    def name(self) -> Text:
+        return "action_check_mail"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        hasMail = bool(random.getrandbits(1))
+        # hasMail = False
+        print("Checked mail: ", hasMail)
+        
+        
+        return [SlotSet("has_mail", hasMail)]

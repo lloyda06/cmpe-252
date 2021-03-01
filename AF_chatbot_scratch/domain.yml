@@ -1,40 +1,38 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet:
-    use_entities: true
+- inform
+- get_mail:
+    use_entities: []
+- greet
 - goodbye:
-    use_entities: true
+    use_entities: []
 - affirm:
-    use_entities: true
+    use_entities: []
 - deny:
-    use_entities: true
+    use_entities: []
 - mood_great:
-    use_entities: true
+    use_entities: []
 - mood_unhappy:
-    use_entities: true
+    use_entities: []
 - bot_challenge:
-    use_entities: true
+    use_entities: []
 - fight:
-    use_entities: true
+    use_entities: []
 - reconcile:
-    use_entities: true
+    use_entities: []
 - hello_world:
-    use_entities: true
+    use_entities: []
 - check_time:
-    use_entities: true
+    use_entities: []
 - ask_bathroom:
-    use_entities: true
-- make_reservation:
-    use_entities: true
-- inform:
-    use_entities: true
+    use_entities: []
+- make_reservation
+- cancel_reservation
 entities:
-  - name
+- name
 slots:
   name:
     type: text
@@ -54,7 +52,9 @@ slots:
   ground_floor:
     type: bool
     influence_conversation: false
-  
+  has_mail:
+    type: bool
+    influence_conversation: true
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -84,7 +84,7 @@ responses:
   utter_ask_num_guests:
   - text: How many guests will be staying with us?
   utter_ask_checkin_date:
-  - text: When would you like to check in?
+  - text: What is your check-in date?
   utter_ask_length_of_stay:
   - text: How many nights will you be staying with us?
   utter_ask_num_beds:
@@ -96,33 +96,52 @@ responses:
   utter_reservation_complete:
   - text: Ok, your reservation is complete.
   utter_reservation_slots_values:
-  - text: "I've made a reservation for {name} with:\n
-               - Guests: {num_guests}\n
-               - Number of beds: {num_beds}\n
-               - Check-in date: {checkin_date}\n
-               - Length of stay: {length_of_stay} nights\n
-               - On ground floor: {ground_floor}"
+  - text: |-
+      I've made a reservation for {name} with:
+       - Guests: {num_guests}
+       - Number of beds: {num_beds}
+       - Check-in date: {checkin_date}
+       - Length of stay: {length_of_stay} nights
+       - On ground floor: {ground_floor}
+  utter_start_reservation_cancel:
+  - text: Ok, I'll need to get some information to find your reservation.
+  utter_reservation_cancel_complete:
+  - text: The reservation for {name} on {checkin_date} has been cancelled.
+  utter_deliver_mail:
+  - text: Your mailbox has been unlocked. Please retrieve your mail.
+  utter_no_mail:
+  - text: You don't have any mail.
 actions:
+- action_check_mail
 - action_hello_world
 - action_report_current_time
 forms:
   make_reservation_form:
-    name:
-      - type: from_entity
-        entity: name
-    num_guests:
-      - type: from_text
     checkin_date:
-      - type: from_text
-    length_of_stay:
-      - type: from_text
-    num_beds:
-      - type: from_text
+    - type: from_text
     ground_floor:
-      - type: from_intent
-        intent: affirm
-        value: true
-      - type: from_intent
-        intent: deny
-        value: false
-e2e_actions: []
+    - intent: affirm
+      type: from_intent
+      value: true
+    - intent: deny
+      type: from_intent
+      value: false
+    length_of_stay:
+    - type: from_text
+    name:
+    - entity: name
+      type: from_entity
+    num_beds:
+    - type: from_text
+    num_guests:
+    - type: from_text
+  cancel_reservation_form:
+    checkin_date:
+    - type: from_text
+    name:
+    - entity: name
+      type: from_entity
+  get_mail_form:
+    name:
+    - entity: name
+      type: from_entity
