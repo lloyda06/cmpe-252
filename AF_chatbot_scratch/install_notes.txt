@@ -1,0 +1,25 @@
+Conda Rasa install notes:
+
+Create new conda environment
+	conda create -n rasa_dev python=3.8
+    conda activate rasa_dev
+
+Install rasa
+	pip3 install rasa
+		Installing OpenSSL resolved an issue where pip3 complained about ssl problems
+	
+	pip3 install rasa-x --extra-index-url https://pypi.rasa.com/simple
+		If you want Rasa X. Don't think this is required, but I'm going to try it.
+		The latest version of pip didn't work for this. Had to downgrade with "pip install --upgrade pip==20.2"
+
+If using spacy package:
+    conda install spacy
+    python -m spacy download en_core_web_md
+    python -m spacy link en_core_web_md en
+    
+ngrok to make my bot accessible on the internet (linking to Slack perhaps)
+    conda install -c conda-forge pyngrok
+    
+    Start rasa running with ngrok. Do each line in a separate terminal.
+        ngrok http 5005
+        rasa run
