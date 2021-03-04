@@ -30,7 +30,7 @@ class ActionHelloWorld(Action):
 
         return []
 
-class ReportCurrentTime(Action):
+class ActionReportCurrentTime(Action):
     
     def name(self) -> Text:
         return "action_report_current_time"
@@ -49,7 +49,7 @@ class ReportCurrentTime(Action):
         
         return []
         
-class CheckMail(Action):
+class ActionCheckMail(Action):
     
     def name(self) -> Text:
         return "action_check_mail"
@@ -64,3 +64,14 @@ class CheckMail(Action):
         
         
         return [SlotSet("has_mail", hasMail)]
+        
+class ActionResetAirport(Action):
+
+    def name(self) -> Text:
+        return "action_reset_airport"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        return [SlotSet("airport", None)]

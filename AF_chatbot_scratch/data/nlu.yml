@@ -92,6 +92,7 @@ nlu:
     - Who do you think you are?
     - I'm gonna kill you, bot!
     - DIE
+    - Let's rumble
 - intent: reconcile
   examples: |
     - I'm sorry
@@ -148,6 +149,37 @@ nlu:
     - I'm expecting a letter
     - I'm expecting some mail
     - check mail
+- intent: ask_freeway
+  examples: |
+    - where is the nearest freeway
+    - how do I get to the freeway from here
+    - where is the interstate
+    - where is the highway
+    - can you direct me to the nearest freeway
+    - how do I get to san francisco
+- intent: thank
+  examples: |
+    - thank you
+    - thanks
+    - thanks for the help
+    - you're very helpful
+    - great advice, thanks
+- intent: ask_airport
+  examples: |
+    - how do I get to the airport?
+    - where is the airport from here?
+    - how do I find the airport?
+    - is there an airport nearby?
+    - what's the closest airport?
+    - where airport
+    - how airport
+    - I'm flying
+    - I have a flight
+    - how do I get to [SFO](airport)
+    - how do I get to [SJC](airport)
+    - can you give me directions to the airport
+    - can you give me directions to [san francisco airport]{"entity":"airport","value":"SFO"}
+    - where is [san jose airport]{"entity":"airport","value":"SJC"}
 - intent: inform
   examples: |
     - [Anthony Fisher](name)
@@ -187,3 +219,12 @@ nlu:
     - march 22
     - april 17
     - may 5
+    - [SFO](airport)
+    - [SJC](airport)
+    - [san francisco]{"entity":"airport","value":"SFO"}
+    - [san jose]{"entity":"airport","value":"SJC"}
+    - [san francisco airport]{"entity":"airport","value":"SFO"}
+    - [san jose airport]{"entity":"airport","value":"SJC"}
+    - [oakland airport](airport)
+    - [oakland](airport)
+    - [OAK](airport)

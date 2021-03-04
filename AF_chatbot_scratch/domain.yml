@@ -31,8 +31,16 @@ intents:
     use_entities: []
 - make_reservation
 - cancel_reservation
+- thank:
+    use_entities: []
+- ask_freeway:
+    use_entities: []
+- ask_airport:
+    use_entities:
+      - airport
 entities:
 - name
+- airport
 slots:
   name:
     type: text
@@ -54,6 +62,12 @@ slots:
     influence_conversation: false
   has_mail:
     type: bool
+    influence_conversation: true
+  airport:
+    type: categorical
+    values:
+      - SJC
+      - SFO
     influence_conversation: true
 responses:
   utter_greet:
@@ -111,10 +125,25 @@ responses:
   - text: Your mailbox has been unlocked. Please retrieve your mail.
   utter_no_mail:
   - text: You don't have any mail.
+  utter_closest_freeway:
+  - text: I-280 is the closest. It's out the main entrance to the right. Go four blocks and you'll see it.
+  utter_thank_response:
+  - text: No problem.
+  - text: You're welcome.
+  - text: My pleasure.
+  utter_which_airport:
+  - text: Which airport are you going to? SJC is the closest, but SFO is nearby as well.
+  utter_sfo_directions:
+  - text: Take highway 101 north to San Francisco. You'll see the signs.
+  utter_sjc_directions:
+  - text: Take highway 101 south to highway 87 south and look for airport signs.
+  utter_unknown_airport:
+  - text: I'm sorry, I don't know that airport. The only ones I know are SJC and SFO.
 actions:
 - action_check_mail
 - action_hello_world
 - action_report_current_time
+- action_reset_airport
 forms:
   make_reservation_form:
     checkin_date:
