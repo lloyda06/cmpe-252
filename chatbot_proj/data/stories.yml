@@ -3,9 +3,9 @@ version: "2.0"
 stories:
 
 - story: roro
- steps:
- - intent: where_to_eat
- - action: utter_food
+  steps:
+  - intent: where_to_eat
+  - action: utter_food
 
 - story: greet path
   steps:
@@ -30,6 +30,6 @@ stories:
 
 - story: activate restaurant form
   steps:
-    - intent: where_to_eat   # intent that triggers form activation
-    - action: restaurant_form      # run the form
-    - active_loop: restaurant_form # this form is active
+  - intent: where_to_eat   # intent that triggers form activation
+  - action: restaurant_form      # run the form
+  - active_loop: restaurant_form # this form is active
