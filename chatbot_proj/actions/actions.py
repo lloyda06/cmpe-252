@@ -25,3 +25,17 @@
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+from rasa_sdk import Action
+from rasa_core.events import AllSlotsReset
+from rasa_core.events import Restarted
+
+class ActionRestarted(Action): 	
+    def name(self): 		
+        return 'action_restarted' 	
+    def run(self, dispatcher, tracker, domain): 
+        return[Restarted()] 
+class ActionSlotReset(Action): 	
+    def name(self): 		
+        return 'action_slot_reset' 	
+    def run(self, dispatcher, tracker, domain): 		
+        return[AllSlotsReset()]

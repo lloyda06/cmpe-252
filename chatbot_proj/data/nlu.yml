@@ -71,6 +71,17 @@ nlu:
     - Where should we eat
     - Any recommendations
     - what restaurant do you recommend
+    - I'm starving
+
+- intent: what_to_do
+  examples: |
+    - I'm bored
+    - fun things to do
+    - what should we do today
+    - need plans
+    - activity
+    - how should we spend our day
+    - what are the attractions
 
 - intent: italian
   examples: |
@@ -106,6 +117,8 @@ nlu:
     - soy
     - sake
     - asian
+    - pho
+    - curry
 
 - intent: casual_family
   examples: |
@@ -115,6 +128,8 @@ nlu:
     - cheap
     - games
     - casual
+    - arcade
+    - booster
 
 - intent: bar
   examples: |
@@ -132,6 +147,58 @@ nlu:
     - dress code
     - reservation
     - expensive
+
+- intent: outdoors
+  examples: |
+    - hike
+    - fish
+    - hiking
+    - fishing
+    - kayak
+    - climb
+    - river
+    - swamp
+    - hill
+    - mountain
+    - ski
+    - snowboard
+    - nature
+    - camp
+    - boat
+
+- intent: culture
+  examples: |
+    - museum
+    - history
+    - tour
+    - art
+    - painting
+    - sculpture
+    - cooking
+    - cuisine
+
+- intent: relax
+  examples: |
+    - spa
+    - beach
+    - tired
+    - massage
+    - take it easy
+    - rest
+
+- intent: pay_activity
+  examples: |
+    - pay
+    - spend money
+    - expensive
+    - any price
+
+- intent: free_activity
+  examples: |
+    - free
+    - save money
+    - inexpensive
+    - cheap
 
 - intent: mood_great
   examples: |
