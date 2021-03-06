@@ -10,6 +10,8 @@ stories:
   steps:
   - intent: check_in
   - action: utter_checkin
+  - intent: give_name
+  - action: utter_name
   - action: utter_thank_you
   - action: utter_bags
   - intent: affirm

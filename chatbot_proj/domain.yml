@@ -21,7 +21,7 @@ intents:
   - pay_activity
   - free_activity
   - what_to_do
-  - whatabout
+  - give_name
 
 responses:
   utter_greet:
@@ -74,9 +74,9 @@ responses:
 
   utter_activity_response:
   - text: "I know the exact {activity_cost} {activity_type} activity for you to do!"
-  
-  utter_test:
-  - text: "The random test worked"
+ 
+  utter_name:
+  - text: "Nice to meet you {first_name} {last_name}\nI'm looking up that reservation now"
 
 
 forms:
@@ -146,7 +146,14 @@ slots:
       - free
       - cost
 
+  first_name:
+    type: text
+  last_name:
+    type: text
 
+entities:
+  - first_name
+  - last_name
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
