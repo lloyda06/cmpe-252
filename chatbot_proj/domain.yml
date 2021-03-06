@@ -22,6 +22,28 @@ intents:
   - free_activity
   - what_to_do
   - give_name
+  - fight:
+      use_entities: []
+  - reconcile:
+      use_entities: []
+  - hello_world:
+      use_entities: []
+  - check_time:
+      use_entities: []
+  - ask_bathroom:
+      use_entities: []
+  - make_reservation
+  - cancel_reservation
+  - thank:
+      use_entities: []
+  - ask_freeway:
+      use_entities: []
+  - ask_airport:
+      use_entities:
+        - airport
+  - inform
+  - get_mail:
+      use_entities: []
 
 responses:
   utter_greet:
@@ -77,6 +99,73 @@ responses:
  
   utter_name:
   - text: "Nice to meet you {first_name} {last_name}\nI'm looking up that reservation now"
+  
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_warcry:
+  - text: YOU WILL NEVER DEFEAT ME, HUMAN!!
+  - text: I will render you to dust!
+  utter_no_fight:
+  - text: Peace is a better choice. Especially for you.
+  - text: Wise choice, mortal.
+  utter_bathroom_directions:
+  - text: Down the hall to the right.
+  utter_greet_name:
+  - text: Hello {name}, nice to meet you.
+  utter_ask_name:
+  - text: What is your name?
+  utter_ask_num_guests:
+  - text: How many guests will be staying with us?
+  utter_ask_checkin_date:
+  - text: What is your check-in date?
+  utter_ask_length_of_stay:
+  - text: How many nights will you be staying with us?
+  utter_ask_num_beds:
+  - text: How many beds would you like?
+  utter_ask_ground_floor:
+  - text: Would you like a room on the ground floor?
+  utter_start_reservation:
+  - text: Ok, I'll need to get some information to complete your reservation.
+  utter_reservation_complete:
+  - text: Ok, your reservation is complete.
+  utter_reservation_slots_values:
+  - text: |-
+      I've made a reservation for {name} with:
+       - Guests: {num_guests}
+       - Number of beds: {num_beds}
+       - Check-in date: {checkin_date}
+       - Length of stay: {length_of_stay} nights
+       - On ground floor: {ground_floor}
+  utter_start_reservation_cancel:
+  - text: Ok, I'll need to get some information to find your reservation.
+  utter_reservation_cancel_complete:
+  - text: The reservation for {name} on {checkin_date} has been cancelled.
+  utter_deliver_mail:
+  - text: Your mailbox has been unlocked. Please retrieve your mail.
+  utter_no_mail:
+  - text: You don't have any mail.
+  utter_closest_freeway:
+  - text: I-280 is the closest. It's out the main entrance to the right. Go four blocks and you'll see it.
+  utter_thank_response:
+  - text: No problem.
+  - text: You're welcome.
+  - text: My pleasure.
+  utter_which_airport:
+  - text: Which airport are you going to? SJC is the closest, but SFO is nearby as well.
+  utter_sfo_directions:
+  - text: Take highway 101 north to San Francisco. You'll see the signs.
+  utter_sjc_directions:
+  - text: Take highway 101 south to highway 87 south and look for airport signs.
+  utter_unknown_airport:
+  - text: I'm sorry, I don't know that airport. The only ones I know are SJC and SFO.
+  utter_happy:
+  - text: Great, carry on!
+
 
 
 forms:
@@ -120,6 +209,36 @@ forms:
       - type: from_intent
         intent: pay_activity
         value: cost
+        
+  make_reservation_form:
+    checkin_date:
+    - type: from_text
+    ground_floor:
+    - intent: affirm
+      type: from_intent
+      value: true
+    - intent: deny
+      type: from_intent
+      value: false
+    length_of_stay:
+    - type: from_text
+    name:
+    - entity: name
+      type: from_entity
+    num_beds:
+    - type: from_text
+    num_guests:
+    - type: from_text
+  cancel_reservation_form:
+    checkin_date:
+    - type: from_text
+    name:
+    - entity: name
+      type: from_entity
+  get_mail_form:
+    name:
+    - entity: name
+      type: from_entity
 
 slots:
   cuisine:
@@ -150,10 +269,47 @@ slots:
     type: text
   last_name:
     type: text
+  
+  name:
+    type: text
+    influence_conversation: true
+  num_guests:
+    type: text
+    influence_conversation: false
+  checkin_date:
+    type: text
+    influence_conversation: false
+  length_of_stay:
+    type: text
+    influence_conversation: false
+  num_beds:
+    type: text
+    influence_conversation: false
+  ground_floor:
+    type: bool
+    influence_conversation: false
+  has_mail:
+    type: bool
+    influence_conversation: true
+  airport:
+    type: categorical
+    values:
+      - SJC
+      - SFO
+    influence_conversation: true
 
 entities:
   - first_name
   - last_name
+  - name
+  - airport
+  
+actions:
+  - action_check_mail
+  - action_hello_world
+  - action_report_current_time
+  - action_reset_airport
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

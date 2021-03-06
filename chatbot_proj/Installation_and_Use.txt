@@ -1,0 +1,22 @@
+Installation instructions:
+
+    We recommend using Python 3.8.
+    Install Rasa with "pip3 install rasa".
+    In one terminal, navigate to the project directory and run "rasa run actions" to start the custom actions server.
+    In another terminal, navigate to the project directory and run "rasa shell". This is where you will talk to the bot.
+    You may need to train the bot with "rasa train" before it will run.
+
+Things the bot can respond to:
+
+    Say hello
+    Ask for the time
+    Check to see if you have any mail (Use name Anthony, Adam, or Marshall for best results).
+        The bot will randomly decide if you have mail or not and give the corresponding response.
+    Ask for directions to...
+        an airport (supports SFO or SJC, and should be able to tell you that it doesn't know the way to OAK)
+        the restroom
+        the freeway
+    Make a reservation to stay at the hotel (Use name Anthony, Adam, or Marshall for best results)
+        There is no data verification when making/cancelling a reservation. The bot will just assume whatever you say makes sense. Be nice :)
+    Cancel a reservation at the hotel (Use name Anthony, Adam, or Marshall for best results)
+    Try to pick a fight (and then surrender to the mighty machine)

@@ -1,0 +1,151 @@
+version: "2.0"
+stories:
+- story: happy path 1
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - name: null
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+#- story: happy path name
+#  steps:
+#  - intent: greet
+#  - slot_was_set:
+#    - name: This can be anything
+#  - action: utter_greet_name
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+- story: fight path 1
+  steps:
+  - intent: fight
+  - action: utter_warcry
+  - intent: fight
+  - action: utter_warcry
+- story: fight path 2
+  steps:
+  - intent: fight
+  - action: utter_warcry
+  - intent: reconcile
+  - action: utter_no_fight
+- story: hello world
+  steps:
+  - intent: hello_world
+  - action: action_hello_world
+
+- story: get mail true
+  steps:
+  - intent: get_mail
+  - action: action_check_mail
+  - slot_was_set:
+    - has_mail: True
+  - action: get_mail_form
+  - active_loop: get_mail_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: foo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_deliver_mail
+
+- story: get mail false
+  steps:
+  - intent: get_mail
+  - action: action_check_mail
+  - slot_was_set:
+    - has_mail: False
+  - action: get_mail_form
+  - active_loop: get_mail_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: foo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_no_mail
+  
+- story: get directions freeway
+  steps:
+  - intent: ask_freeway
+  - action: utter_closest_freeway
+  - intent: thank
+  - action: utter_thank_response
+  
+- story: get directions SFO
+  steps:
+  - intent: ask_airport
+  - slot_was_set:
+    - airport: SFO
+  - action: utter_sfo_directions
+  - action: action_reset_airport
+  - slot_was_set:
+    - airport: null
+  
+- story: get directions SJC
+  steps:
+  - intent: ask_airport
+  - slot_was_set:
+    - airport: SJC
+  - action: utter_sjc_directions
+  - action: action_reset_airport
+  - slot_was_set:
+    - airport: null
+  
+- story: get directions unknown airport
+  steps:
+  - intent: ask_airport
+  - slot_was_set:
+    - airport: __other__
+  - action: utter_unknown_airport
+  - action: action_reset_airport
+  - slot_was_set:
+    - airport: null
+  
+- story: get directions airport 1
+  steps:
+  - intent: ask_airport
+  - slot_was_set:
+    - airport: null
+  - action: utter_which_airport
+  - checkpoint: airport_branch
+  
+- story: get directions airport 2
+  steps:
+  - checkpoint: airport_branch
+  - intent: inform
+  - slot_was_set:
+    - airport: SFO
+  - action: utter_sfo_directions
+  - action: action_reset_airport
+  - slot_was_set:
+    - airport: null
+  
+- story: get directions airport 3
+  steps:
+  - checkpoint: airport_branch
+  - intent: inform
+  - slot_was_set:
+    - airport: SJC
+  - action: utter_sjc_directions
+  - action: action_reset_airport
+  - slot_was_set:
+    - airport: null
