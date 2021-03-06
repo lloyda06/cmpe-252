@@ -31,8 +31,8 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
-from rasa_core.events import AllSlotsReset
-from rasa_core.events import Restarted
+from rasa_sdk.events import AllSlotsReset
+from rasa_sdk.events import Restarted
 from datetime import datetime
 import random
 
