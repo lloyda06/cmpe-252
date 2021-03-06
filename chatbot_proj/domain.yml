@@ -21,6 +21,7 @@ intents:
   - pay_activity
   - free_activity
   - what_to_do
+  - whatabout
 
 responses:
   utter_greet:
@@ -73,6 +74,9 @@ responses:
 
   utter_activity_response:
   - text: "I know the exact {activity_cost} {activity_type} activity for you to do!"
+  
+  utter_test:
+  - text: "The random test worked"
 
 
 forms:
@@ -141,7 +145,6 @@ slots:
     values:
       - free
       - cost
-
 
 
 session_config:
