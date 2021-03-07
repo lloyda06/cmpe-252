@@ -13,6 +13,7 @@ nlu:
     - Where should I park
     - I drove in
     - I have a car
+    - It was a long drive in
 
 - intent: park_my_car
   examples: | 
@@ -20,6 +21,8 @@ nlu:
     - Park myself
     - Parking lot
     - Parking garage
+    - I'll find a spot
+    - self park
 
 - intent: valet_my_car
   examples: | 
@@ -27,14 +30,15 @@ nlu:
     - Take my car
     - Valet
     - Here are my keys
+    - vip service
 
 - intent: where_to_eat
   examples: |
     - I'm Hungry
     - hungry
-    - food
+    - What food should we try
     - Where should we eat
-    - Any recommendations
+    - Any food recommendations
     - what restaurant do you recommend
     - I'm starving
 
@@ -52,12 +56,23 @@ nlu:
   examples: |
     - spaghetti
     - lasagna
+    - linguine
     - pasta
     - pizza
     - sausage
     - italian
     - wine
-
+    - bruschetta
+    - caprese
+    - mozzarella
+    - pesto
+    - polognese
+    - capellini
+    - ricotta
+    - manicotti
+    - ziti
+    - rigatoni
+    - Prosciutto
 
 - intent: american
   examples: |
@@ -71,19 +86,61 @@ nlu:
     - steak
     - pork
     - american
+    - tenders
+    - sliders
+    - cobb salad
+    - sandwich
+    - cheesesteak
+    - ribs
+    - onion rings
+    - coleslaw
+    - tots
 
 
-- intent: asian
+- intent: chinese
+  examples: |
+    - hunan
+    - contonese
+    - dim sum
+    - lo mein
+    - szechuan
+    - egg roll
+    - fried rice
+    - rangoon
+    - wonton
+    - general tso's
+    - general tso
+    - dumpling
+    - kung pao
+
+
+- intent: japanese
   examples: |
     - sushi
     - tuna
-    - rice
-    - noodles
-    - soy
+    - rolls
+    - tempura
     - sake
-    - asian
-    - pho
-    - curry
+    - ramen
+    - soba
+    - hand rolls
+    - udon
+    - sashimi
+    - miso
+
+- intent: mexican
+  examples: |
+    - tacos
+    - burrito
+    - tamales
+    - tempura
+    - fajita
+    - enchilada
+    - soba
+    - hand rolls
+    - udon
+    - sashimi
+    - miso
 
 - intent: casual_family
   examples: |
@@ -118,6 +175,8 @@ nlu:
     - hike
     - fish
     - hiking
+    - biking
+    - golf
     - fishing
     - kayak
     - climb
@@ -130,6 +189,11 @@ nlu:
     - nature
     - camp
     - boat
+    - playground
+    - park
+    - snorkeling
+    - surfing
+    - ziplining
 
 - intent: culture
   examples: |
@@ -141,6 +205,15 @@ nlu:
     - sculpture
     - cooking
     - cuisine
+    - gallery
+    - festival
+    - fair
+    - music venue
+    - concert
+    - show
+    - play
+    - opera
+    - ballet
 
 - intent: relax
   examples: |
@@ -150,6 +223,8 @@ nlu:
     - massage
     - take it easy
     - rest
+    - salon
+    - sauna
 
 - intent: pay_activity
   examples: |

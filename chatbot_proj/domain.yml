@@ -10,7 +10,9 @@ intents:
   - where_to_eat
   - italian
   - american
-  - asian
+  - japanese
+  - chinese
+  - mexican
   - casual_family
   - bar
   - fancy
@@ -188,8 +190,14 @@ forms:
         intent: american
         value: american
       - type: from_intent
-        intent: asian
-        value: asian
+        intent: japanese
+        value: japanese
+      - type: from_intent
+        intent: chinese
+        value: chinese
+      - type: from_intent
+        intent: mexican
+        value: mexican
     atmosphere:
       - type: from_intent
         intent: casual_family
@@ -255,8 +263,10 @@ slots:
     type: categorical
     values:
       - italian
-      - asian
+      - mexican
       - american
+      - chinese
+      - japanese
   atmosphere:
     type: categorical
     values:

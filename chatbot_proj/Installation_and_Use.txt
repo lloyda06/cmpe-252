@@ -3,8 +3,8 @@ Installation instructions:
     We recommend using Python 3.8.
     Install Rasa with "pip3 install rasa".
     In one terminal, navigate to the project directory and run "rasa run actions" to start the custom actions server.
-    In another terminal, navigate to the project directory and run "rasa shell". This is where you will talk to the bot.
-    You may need to train the bot with "rasa train" before it will run.
+    In another terminal, navigate to the project directory and run "rasa shell -m models/hotel-bot-model.tar.gz". This is where you will talk to the bot.
+    If you need to re-train the bot you can run "rasa train --fixed-model-name hotel-bot-model"
 
 Things the bot can respond to:
 
@@ -20,6 +20,12 @@ Things the bot can respond to:
         There is no data verification when making/cancelling a reservation. The bot will just assume whatever you say makes sense. Be nice :)
     Cancel a reservation at the hotel (Use name Anthony, Adam, or Marshall for best results)
     Try to pick a fight (and then surrender to the mighty machine)
+    Food recommendations
+        Say you're hungry then answer questions about cuisine and atmosphere
+    Activity recommendations
+        Say you're bored then answer questions on activity type and cost
+    Parking
+        Choose between self parking and valet
 
 Known Issues:
 
