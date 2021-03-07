@@ -1,0 +1,88 @@
+
+version: "2.0"
+stories:
+- story: interactive_story_1
+  steps:
+  - intent: check_in
+  - action: utter_checkin
+  - intent: give_name
+    entities:
+    - res_first_name: tom
+    - res_last_name: jones
+  - slot_was_set:
+    - res_first_name: tom
+  - slot_was_set:
+    - res_last_name: jones
+
+- story: interactive_story_2
+  steps:
+  - intent: check_in
+  - action: utter_checkin
+  - intent: give_name
+    entities:
+    - res_first_name: tom
+    - res_last_name: jones
+  - slot_was_set:
+    - res_first_name: tom
+  - slot_was_set:
+    - res_last_name: jones
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
+  - intent: affirm
+  - action: utter_vehicle_description
+  - intent: give_vehicle_description
+    entities:
+    - car_color: black
+
+- story: interactive_story_1
+  steps:
+  - intent: check_in
+  - action: utter_checkin
+  - intent: give_name
+    entities:
+    - res_first_name: tom
+    - res_last_name: brown
+  - slot_was_set:
+    - res_first_name: tom
+  - slot_was_set:
+    - res_last_name: brown
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
+  - intent: affirm
+  - action: utter_vehicle_description
+  - intent: give_vehicle_description
+    entities:
+    - car_color: red
+    - car_type: hatchback
+
+- story: interactive_story_1
+  steps:
+  - intent: check_in
+  - action: utter_checkin
+  - intent: give_name
+    entities:
+    - res_first_name: robert
+    - res_last_name: smith
+  - slot_was_set:
+    - res_first_name: robert
+  - slot_was_set:
+    - res_last_name: smith
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
+  - intent: affirm
+  - action: utter_vehicle_description
+  - intent: give_vehicle_description
+    entities:
+    - car_color: black
+    - car_type: sedan
+  - slot_was_set:
+    - car_color: black
+  - slot_was_set:
+    - car_type: sedan
+  - action: utter_standard_info_question
+  - intent: affirm
+  - action: utter_standard_info
+  - action: utter_new_request

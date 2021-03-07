@@ -1,14 +1,40 @@
 version: "2.0"
 
 stories:
-- story: check in
+- story: check in find res
   steps:
   - intent: check_in
   - action: utter_checkin
   - intent: give_name
-  - action: utter_name
-  - action: utter_thank_you
-  - action: utter_bags
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
+  - checkpoint: res_found
+- story: check in vehicle
+  steps:
+  - checkpoint: res_found
   - intent: affirm
-  - action: utter_thank_you
+  - action: utter_vehicle_description
+  - intent: give_vehicle_description
+  - action: utter_standard_info_question
+  - checkpoint: car_done
+- story: check in no vehicle
+  steps:
+  - checkpoint: res_found
+  - intent: deny
+  - action: utter_standard_info_question
+  - checkpoint: car_done
+  
+- story: check in utter standard info
+  steps:
+  - checkpoint: car_done
+  - intent: affirm
+  - action: utter_standard_info
+  - action: utter_new_request
+- story: check in dont utter standard info
+  steps:
+  - checkpoint: car_done
+  - intent: deny
+  - action: utter_new_request
+  
 

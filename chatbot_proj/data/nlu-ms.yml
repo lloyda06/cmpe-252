@@ -1,16 +1,34 @@
 version: "2.0"
-
 nlu:
 - intent: check_in
   examples: |
     - Checking in
     - Just arrived
     - Reservation
+    - I'm to checking in
+    - I'd like to check in
 - intent: give_name
   examples: |
-    - [mark](first_name) [hamill](last_name)
-    - I'm [tom](first_name) [holland](last_name)
-    - My name is [gregory](first_name) [brown](last_name)
-    - I am [matt](first_name) [smith](last_name)
-    - Im [james](first_name) [johnson](last_name)
-    - Hello, I'm [serena](last_name) [williams](last_name)
+    - [mark](res_first_name) [hamill](res_last_name)
+    - I'm [tom](res_first_name) [holland](res_last_name)
+    - My name is [gregory](res_first_name) [brown](res_last_name)
+    - I am [matt](res_first_name) [smith](res_last_name)
+    - Im [james](res_first_name) [johnson](res_last_name)
+    - Hello, I'm [serena](res_last_name) [williams](res_last_name)
+    - [john](res_first_name) [smith](res_last_name)
+    - my name is [john](res_first_name) [storm](res_last_name)
+    - [tony](res_first_name) [smith](res_last_name)
+    - My name is [Tommy](res_first_name) [Jones](res_last_name)
+    - [robert](res_first_name) [wilson](res_last_name)
+    - My name is [robert](res_first_name) [smith](res_last_name)
+- intent: give_vehicle_description
+  examples: |
+    - I drive a [black](car_color) [hatchback] (car_type)
+    - [red](car_color) [sedan](car_type)
+    - I'll have a [silver](car_color) [truck](car_type)
+    - mine is a [blue](car_color) [coupe](car_type)
+    - I have a [black](car_color) [sedan](car_type)
+- intent: affirm
+  examples: |
+    - yes I would
+    - sure tell me

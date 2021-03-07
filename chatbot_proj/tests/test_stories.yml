@@ -2,90 +2,96 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: happy path 1
+- story: checkin basic
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
+      I'd like to check in
+    intent: check_in
+  - action: utter_checkin
   - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-
-- story: happy path 2
-  steps:
+      My name is [robert](res_first_name) [smith](res_last_name)
+    intent: give_name
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: sad path 1
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
+      yes I would
     intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
+  - action: utter_vehicle_description
+  - user: |
+      I have a [black](car_color) [sedan](car_type)
+    intent: give_vehicle_description
+  - action: utter_standard_info_question
+  - user: |
+      sure tell me
+    intent: affirm
+  - action: utter_standard_info
+  - action: utter_new_request
+  
+- story: checkin no car standard info
   steps:
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
+      checking in
+    intent: check_in
+  - action: utter_checkin
   - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      Checkin is under [tommy](res_first_name) [stone](res_last_name)
+    intent: give_name
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
   - user: |
-      not really
+      no I don't have one
     intent: deny
-  - action: utter_goodbye
-
-- story: sad path 3
+  - action: utter_standard_info_question
+  - user: |
+      sure tell me
+    intent: affirm
+  - action: utter_standard_info
+  - action: utter_new_request
+  
+- story: checkin no car no standard info
   steps:
   - user: |
-      hi
-    intent: greet
-  - action: utter_greet
+      checkin
+    intent: check_in
+  - action: utter_checkin
   - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      it's [sally](res_first_name) [johnson](res_last_name)
+    intent: give_name
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
   - user: |
-      no
+      no I don't have one
     intent: deny
-  - action: utter_goodbye
-
-- story: say goodbye
+  - action: utter_standard_info_question
+  - user: |
+      nah
+    intent: deny
+  - action: utter_new_request
+  
+- story: checkin car no standard info
   steps:
   - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: bot challenge
-  steps:
+      I'm here to check in
+    intent: check_in
+  - action: utter_checkin
   - user: |
-      are you a bot?
-    intent: bot_challenge
-  - action: utter_iamabot
+      [jack](res_first_name) [flash](res_last_name)
+    intent: give_name
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
+  - user: |
+      yes I would
+    intent: affirm
+  - action: utter_vehicle_description
+  - user: |
+      I have a [blue](car_color) [hatchback](car_type)
+    intent: give_vehicle_description
+  - action: utter_standard_info_question
+  - user: |
+      nah
+    intent: deny
+  - action: utter_new_request
