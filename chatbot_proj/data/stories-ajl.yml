@@ -21,5 +21,7 @@ stories:
   steps:
   - intent: parking
   - action: utter_park
-  - intent: affirm
-  - action: utter_thank_you
+  - intent: park_my_car
+  - action: utter_park_yourself
+  - intent: valet_my_car
+  - action: utter_park_valet

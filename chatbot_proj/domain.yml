@@ -22,6 +22,10 @@ intents:
   - free_activity
   - what_to_do
   - give_name
+  - mood_great
+  - mood_unhappy
+  - park_my_car
+  - valet_my_car
   - fight:
       use_entities: []
   - reconcile:
@@ -56,7 +60,13 @@ responses:
   - text: "Thank you, I'll take care of that for you."
 
   utter_park:
-  - text: "Did you find parking or would you like valet?"
+  - text: "Did you need parking info or would you like valet?"
+
+  utter_park_yourself:
+  - text: "Go out to the main road, the first right will go into the parking garage."
+
+  utter_park_valet:
+  - text: "Thank you.  Give me your keys and the valet will take care of it."
 
   utter_bags:
   - text: "Do you have any bags we can carry?"

@@ -20,3 +20,8 @@ Things the bot can respond to:
         There is no data verification when making/cancelling a reservation. The bot will just assume whatever you say makes sense. Be nice :)
     Cancel a reservation at the hotel (Use name Anthony, Adam, or Marshall for best results)
     Try to pick a fight (and then surrender to the mighty machine)
+
+Known Issues:
+
+    The forms using a rule (e.g. restaurant form) show a warning about a slot type never sent during training.
+    This is an issue with RASA that hasn't been fixed.  https://forum.rasa.com/t/getting-warning-in-rasa-core-processor/2892
