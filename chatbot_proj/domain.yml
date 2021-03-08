@@ -271,7 +271,7 @@ forms:
     cuisine:
      - type: from_intent
        intent: italian
-        value: italian
+       value: italian
      - type: from_intent
        intent: american
        value: american
