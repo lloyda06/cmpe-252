@@ -63,9 +63,11 @@ slots:
     type: categorical
     influence_conversation: true
     values:
-    - italian
-    - asian
-    - american
+     - italian
+     - mexican
+     - american
+     - chinese
+     - japanese
   atmosphere:
     type: categorical
     influence_conversation: true
@@ -267,21 +269,21 @@ actions:
 forms:
   restaurant_form:
     cuisine:
-      - type: from_intent
-        intent: italian
+     - type: from_intent
+       intent: italian
         value: italian
-      - type: from_intent
-        intent: american
-        value: american
-      - type: from_intent
-        intent: japanese
-        value: japanese
-      - type: from_intent
-        intent: chinese
-        value: chinese
-      - type: from_intent
-        intent: mexican
-        value: mexican
+     - type: from_intent
+       intent: american
+       value: american
+     - type: from_intent
+       intent: japanese
+       value: japanese
+     - type: from_intent
+       intent: chinese
+       value: chinese
+     - type: from_intent
+       intent: mexican
+       value: mexican
     atmosphere:
     - type: from_intent
       intent: casual_family
@@ -339,78 +341,3 @@ forms:
     name:
     - entity: name
       type: from_entity
-slots:
-  cuisine:
-    type: categorical
-    values:
-      - italian
-      - mexican
-      - american
-      - chinese
-      - japanese
-  atmosphere:
-    type: categorical
-    values:
-      - casual
-      - bar
-      - fancy
-  activity_type:
-    type: categorical
-    values:
-      - outdoors
-      - cultural
-      - relaxing
-  activity_cost:
-    type: categorical
-    values:
-      - free
-      - cost
-
-  first_name:
-    type: text
-  last_name:
-    type: text
-  
-  name:
-    type: text
-    influence_conversation: true
-  num_guests:
-    type: text
-    influence_conversation: false
-  checkin_date:
-    type: text
-    influence_conversation: false
-  length_of_stay:
-    type: text
-    influence_conversation: false
-  num_beds:
-    type: text
-    influence_conversation: false
-  ground_floor:
-    type: bool
-    influence_conversation: false
-  has_mail:
-    type: bool
-    influence_conversation: true
-  airport:
-    type: categorical
-    values:
-      - SJC
-      - SFO
-    influence_conversation: true
-
-entities:
-  - first_name
-  - last_name
-  - name
-  - airport
-  
-actions:
-  - action_check_mail
-  - action_hello_world
-  - action_report_current_time
-  - action_reset_airport
-  
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
