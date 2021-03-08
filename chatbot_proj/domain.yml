@@ -1,117 +1,191 @@
-version: "2.0"
-
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - check_in
-  - parking
-  - where_to_eat
-  - italian
-  - american
-  - japanese
-  - chinese
-  - mexican
-  - casual_family
-  - bar
-  - fancy
-  - bot_challenge
-  - outdoors
-  - culture
-  - relax
-  - pay_activity
-  - free_activity
-  - what_to_do
-  - give_name
-  - mood_great
-  - mood_unhappy
-  - park_my_car
-  - valet_my_car
-  - fight:
-      use_entities: []
-  - reconcile:
-      use_entities: []
-  - hello_world:
-      use_entities: []
-  - check_time:
-      use_entities: []
-  - ask_bathroom:
-      use_entities: []
-  - make_reservation
-  - cancel_reservation
-  - thank:
-      use_entities: []
-  - ask_freeway:
-      use_entities: []
-  - ask_airport:
-      use_entities:
-        - airport
-  - inform
-  - get_mail:
-      use_entities: []
-
+- give_vehicle_description
+- affirm
+- give_name
+- check_in
+- greet
+- goodbye
+- deny
+- parking
+- where_to_eat
+- italian
+- american
+- asian
+- casual_family
+- bar
+- fancy
+- bot_challenge
+- outdoors
+- culture
+- relax
+- pay_activity
+- free_activity
+- what_to_do
+- mood_great
+- mood_unhappy
+- park_my_car
+- valet_my_car
+- fight:
+    use_entities: []
+- reconcile:
+    use_entities: []
+- hello_world:
+    use_entities: []
+- check_time:
+    use_entities: []
+- ask_bathroom:
+    use_entities: []
+- make_reservation
+- cancel_reservation
+- thank:
+    use_entities: []
+- ask_freeway:
+    use_entities: []
+- ask_airport:
+    use_entities:
+    - airport
+- inform
+- get_mail:
+    use_entities: []
+entities:
+- airport
+- car_color
+- car_type
+- name
+- res_first_name
+- res_last_name
+slots:
+  cuisine:
+    type: categorical
+    influence_conversation: true
+    values:
+    - italian
+    - asian
+    - american
+  atmosphere:
+    type: categorical
+    influence_conversation: true
+    values:
+    - casual
+    - bar
+    - fancy
+  activity_type:
+    type: categorical
+    influence_conversation: true
+    values:
+    - outdoors
+    - cultural
+    - relaxing
+  activity_cost:
+    type: categorical
+    influence_conversation: true
+    values:
+    - free
+    - cost
+  res_first_name:
+    type: text
+    influence_conversation: true
+  res_last_name:
+    type: text
+    influence_conversation: true
+  car_color:
+    type: text
+    influence_conversation: true
+  car_type:
+    type: text
+    influence_conversation: true
+  name:
+    type: text
+    influence_conversation: true
+  num_guests:
+    type: text
+    influence_conversation: false
+  checkin_date:
+    type: text
+    influence_conversation: false
+  length_of_stay:
+    type: text
+    influence_conversation: false
+  num_beds:
+    type: text
+    influence_conversation: false
+  ground_floor:
+    type: bool
+    influence_conversation: false
+  has_mail:
+    type: bool
+    influence_conversation: true
+  airport:
+    type: categorical
+    influence_conversation: true
+    values:
+    - sjc
+    - sfo
 responses:
   utter_greet:
-  - text: "Welcome to SJSU Hotel.  How can I help you?"
-
+  - text: Welcome to SJSU Hotel.  How can I help you?
   utter_checkin:
-  - text: "Last name for reservation?"
-
+  - text: Can I get the name for the reservation?
   utter_thank_you:
-  - text: "Thank you, I'll take care of that for you."
-
+  - text: Thank you, I'll take care of that for you.
   utter_park:
-  - text: "Did you need parking info or would you like valet?"
-
+  - text: Did you need parking info or would you like valet?
   utter_park_yourself:
-  - text: "Go out to the main road, the first right will go into the parking garage."
-
+  - text: Go out to the main road, the first right will go into the parking garage.
   utter_park_valet:
-  - text: "Thank you.  Give me your keys and the valet will take care of it."
-
+  - text: Thank you.  Give me your keys and the valet will take care of it.
   utter_bags:
-  - text: "Do you have any bags we can carry?"
-
+  - text: Do you have any bags we can carry?
   utter_food:
-  - text: "I can help with that, lets find the perfect restaurant"
-
+  - text: I can help with that, lets find the perfect restaurant
   utter_restaurant:
-  - text: "I have the perfect {cuisine} {atmosphere} restaurant for you."
-
+  - text: I have the perfect {cuisine} {atmosphere} restaurant for you.
   utter_help:
-  - text: "How can I help you?"
-
+  - text: How can I help you?
   utter_anything_else:
-  - text: "Can I help you with anything else today?"
-
+  - text: Can I help you with anything else today?
   utter_goodbye:
-  - text: "Goodbye, enjoy your stay!"
-
+  - text: Goodbye, enjoy your stay!
   utter_talk_to_person:
-  - text: "I am a bot, please see the front desk."
-
+  - text: I am a bot, please see the front desk.
   utter_ask_cuisine:
-  - text: "What type of cuisine are you in the mood for?"
-
+  - text: What type of cuisine are you in the mood for?
   utter_ask_atmosphere:
-  - text: "What atmosphere would you prefer?"
-
+  - text: What atmosphere would you prefer?
   utter_find_activity:
-  - text: "You're in luck, there are plenty of things to do around here."
-
+  - text: You're in luck, there are plenty of things to do around here.
   utter_ask_activity_type:
-  - text: "What type of activity do you feel like today?"
-
+  - text: What type of activity do you feel like today?
   utter_ask_activity_cost:
-  - text: "How much would you like to spend?"
-
+  - text: How much would you like to spend?
   utter_activity_response:
-  - text: "I know the exact {activity_cost} {activity_type} activity for you to do!"
- 
-  utter_name:
-  - text: "Nice to meet you {first_name} {last_name}\nI'm looking up that reservation now"
-  
+  - text: I know the exact {activity_cost} {activity_type} activity for you to do!
+  utter_res_lookup:
+  - text: |-
+      Nice to meet you {res_first_name} {res_last_name}
+      I'm looking up that reservation now
+  utter_find_res:
+  - text: found your reservation right here.
+  utter_car_question:
+  - text: Will there be a car you would like us to take car of?
+  utter_vehicle_description:
+  - text: can you give the color and type of your vehicle?
+  utter_vehicle_addded:
+  - text: Alright we will take care of that vehicle for you.
+  utter_standard_info_question:
+  - text: Would you like to know a bit about our hotel?
+  utter_standard_info:
+  - text: |-
+      Complimentary breakfast is served in the lobby between 8 and 10 am.
+       The dining room is on the main floor at the end of the hall.
+       The weight room and sauna are on the top floor.
+       Just call the front desk if you need anything
+  utter_new_request:
+  - text: is there anything else I can do for you
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -177,9 +251,19 @@ responses:
   - text: I'm sorry, I don't know that airport. The only ones I know are SJC and SFO.
   utter_happy:
   - text: Great, carry on!
-
-
-
+actions:
+- action_check_mail
+- action_hello_world
+- action_report_current_time
+- action_reset_airport
+- utter_car_question
+- utter_checkin
+- utter_find_res
+- utter_new_request
+- utter_res_lookup
+- utter_standard_info
+- utter_standard_info_question
+- utter_vehicle_description
 forms:
   restaurant_form:
     cuisine:
@@ -199,35 +283,33 @@ forms:
         intent: mexican
         value: mexican
     atmosphere:
-      - type: from_intent
-        intent: casual_family
-        value: casual
-      - type: from_intent
-        intent: bar
-        value: bar
-      - type: from_intent
-        intent: fancy
-        value: fancy
-  
+    - type: from_intent
+      intent: casual_family
+      value: casual
+    - type: from_intent
+      intent: bar
+      value: bar
+    - type: from_intent
+      intent: fancy
+      value: fancy
   activity_form:
     activity_type:
-      - type: from_intent
-        intent: outdoors
-        value: outdoors
-      - type: from_intent
-        intent: culture
-        value: cultural
-      - type: from_intent
-        intent: relax
-        value: relaxing
+    - type: from_intent
+      intent: outdoors
+      value: outdoors
+    - type: from_intent
+      intent: culture
+      value: cultural
+    - type: from_intent
+      intent: relax
+      value: relaxing
     activity_cost:
-      - type: from_intent
-        intent: free_activity
-        value: free
-      - type: from_intent
-        intent: pay_activity
-        value: cost
-        
+    - type: from_intent
+      intent: free_activity
+      value: free
+    - type: from_intent
+      intent: pay_activity
+      value: cost
   make_reservation_form:
     checkin_date:
     - type: from_text
@@ -257,7 +339,6 @@ forms:
     name:
     - entity: name
       type: from_entity
-
 slots:
   cuisine:
     type: categorical
