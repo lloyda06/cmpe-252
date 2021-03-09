@@ -86,3 +86,23 @@ stories:
   - intent: affirm
   - action: utter_standard_info
   - action: utter_new_request
+
+- story: interactive_story_1
+  steps:
+  - intent: check_in
+  - action: utter_checkin
+  - intent: give_name
+    entities:
+    - res_first_name: sally
+    - res_last_name: johnson
+  - slot_was_set:
+    - res_first_name: sally
+  - slot_was_set:
+    - res_last_name: johnson
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
+  - intent: deny
+  - action: utter_standard_info_question
+  - intent: deny
+  - action: utter_new_request

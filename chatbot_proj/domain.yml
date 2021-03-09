@@ -3,13 +3,13 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- check_in
+- give_name
+- deny
 - give_vehicle_description
 - affirm
-- give_name
-- check_in
 - greet
 - goodbye
-- deny
 - parking
 - where_to_eat
 - italian
@@ -63,11 +63,11 @@ slots:
     type: categorical
     influence_conversation: true
     values:
-     - italian
-     - mexican
-     - american
-     - chinese
-     - japanese
+    - italian
+    - mexican
+    - american
+    - chinese
+    - japanese
   atmosphere:
     type: categorical
     influence_conversation: true
@@ -269,21 +269,21 @@ actions:
 forms:
   restaurant_form:
     cuisine:
-     - type: from_intent
-       intent: italian
-       value: italian
-     - type: from_intent
-       intent: american
-       value: american
-     - type: from_intent
-       intent: japanese
-       value: japanese
-     - type: from_intent
-       intent: chinese
-       value: chinese
-     - type: from_intent
-       intent: mexican
-       value: mexican
+    - type: from_intent
+      intent: italian
+      value: italian
+    - type: from_intent
+      intent: american
+      value: american
+    - type: from_intent
+      intent: japanese
+      value: japanese
+    - type: from_intent
+      intent: chinese
+      value: chinese
+    - type: from_intent
+      intent: mexican
+      value: mexican
     atmosphere:
     - type: from_intent
       intent: casual_family

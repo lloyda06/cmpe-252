@@ -35,7 +35,7 @@ stories:
     intent: check_in
   - action: utter_checkin
   - user: |
-      Checkin is under [tommy](res_first_name) [stone](res_last_name)
+      It's under [tommy](res_first_name) [stone](res_last_name)
     intent: give_name
   - action: utter_res_lookup
   - action: utter_find_res
@@ -45,7 +45,7 @@ stories:
     intent: deny
   - action: utter_standard_info_question
   - user: |
-      sure tell me
+      yes
     intent: affirm
   - action: utter_standard_info
   - action: utter_new_request
@@ -67,7 +67,7 @@ stories:
     intent: deny
   - action: utter_standard_info_question
   - user: |
-      nah
+      y
     intent: deny
   - action: utter_new_request
   
@@ -88,10 +88,10 @@ stories:
     intent: affirm
   - action: utter_vehicle_description
   - user: |
-      I have a [blue](car_color) [hatchback](car_type)
+      I have a [black](car_color) [hatchback](car_type)
     intent: give_vehicle_description
   - action: utter_standard_info_question
   - user: |
-      nah
+      no
     intent: deny
   - action: utter_new_request

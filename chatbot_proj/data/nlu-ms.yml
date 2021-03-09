@@ -7,6 +7,7 @@ nlu:
     - Reservation
     - I'm to checking in
     - I'd like to check in
+    - checkin
 - intent: give_name
   examples: |
     - [mark](res_first_name) [hamill](res_last_name)
@@ -21,6 +22,10 @@ nlu:
     - My name is [Tommy](res_first_name) [Jones](res_last_name)
     - [robert](res_first_name) [wilson](res_last_name)
     - My name is [robert](res_first_name) [smith](res_last_name)
+    - [tommy](res_first_name) [stone](res_last_name)
+    - [sally](res_first_name) [johnson](res_last_name)
+    - [jack](res_first_name) [flash](res_last_name)
+    - it's [sally](res_first_name) [johnson](res_last_name)
 - intent: give_vehicle_description
   examples: |
     - I drive a [black](car_color) [hatchback] (car_type)
@@ -32,3 +37,7 @@ nlu:
   examples: |
     - yes I would
     - sure tell me
+- intent: deny
+  examples: |
+    - no I don't have one
+    - nah
