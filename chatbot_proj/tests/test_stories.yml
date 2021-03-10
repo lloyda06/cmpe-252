@@ -103,11 +103,11 @@ stories:
     intent: check_out
   - action: utter_checkout_name
   - user: |
-      name is [tom](res_first_name) [jones](res_last_name)
+      name is [tom](res_first_name) [brown](res_last_name)
     intent: give_name
   - action: utter_checkout_room
   - user: |
-      432
+      room number [432] (room_number)
     intent: give_room_number
   - action: utter_price_lookup
   - user: |
