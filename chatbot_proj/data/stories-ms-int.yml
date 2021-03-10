@@ -106,3 +106,50 @@ stories:
   - action: utter_standard_info_question
   - intent: deny
   - action: utter_new_request
+
+- story: interactive_story_1
+  steps:
+  - intent: check_in
+  - action: utter_checkin
+  - intent: give_name
+    entities:
+    - res_first_name: jack
+    - res_last_name: flash
+  - slot_was_set:
+    - res_first_name: jack
+  - slot_was_set:
+    - res_last_name: flash
+  - action: utter_res_lookup
+  - action: utter_find_res
+  - action: utter_car_question
+  - intent: affirm
+  - action: utter_vehicle_description
+  - intent: give_vehicle_description
+    entities:
+    - car_color: black
+    - car_type: sedan
+  - slot_was_set:
+    - car_color: black
+  - slot_was_set:
+    - car_type: sedan
+  - action: utter_standard_info_question
+  - intent: deny
+  - action: utter_new_request
+
+- story: interactive_story_1
+  steps:
+  - intent: check_out
+  - action: utter_checkout_name
+  - intent: give_name
+    entities:
+    - res_first_name: tom
+    - res_last_name: jones
+  - slot_was_set:
+    - res_first_name: tom
+  - slot_was_set:
+    - res_last_name: jones
+  - action: utter_checkout_room
+  - intent: give_room_number
+  - action: utter_price_lookup
+  - intent: affirm
+  - action: utter_thank_you_checkout

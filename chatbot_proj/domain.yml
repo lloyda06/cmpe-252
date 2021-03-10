@@ -3,11 +3,13 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- check_in
-- give_name
-- deny
-- give_vehicle_description
+- give_room_number
 - affirm
+- give_name
+- check_out
+- give_vehicle_description
+- check_in
+- deny
 - greet
 - goodbye
 - parking
@@ -253,6 +255,16 @@ responses:
   - text: I'm sorry, I don't know that airport. The only ones I know are SJC and SFO.
   utter_happy:
   - text: Great, carry on!
+  utter_checkout_name:
+  - text: Were sad to see you go.  Can I get the name?
+  utter_checkout_room:
+  - text: And the room number?
+  utter_price_lookup:
+  - text: alright I have the price as $493.32 for your stay. Does that seem right?
+  utter_thank_you_checkout:
+  - text: thank you you're all checked out.  Hope to see you again.
+  utter_transfer:
+  - text: oh I'm sorry about that.  I'm going to transfer you to someone who can help.
 actions:
 - action_check_mail
 - action_hello_world
@@ -260,11 +272,15 @@ actions:
 - action_reset_airport
 - utter_car_question
 - utter_checkin
+- utter_checkout_name
+- utter_checkout_room
 - utter_find_res
 - utter_new_request
+- utter_price_lookup
 - utter_res_lookup
 - utter_standard_info
 - utter_standard_info_question
+- utter_thank_you_checkout
 - utter_vehicle_description
 forms:
   restaurant_form:

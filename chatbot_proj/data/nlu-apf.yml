@@ -39,6 +39,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - looks good
 - intent: deny
   examples: |
     - no

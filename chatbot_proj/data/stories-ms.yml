@@ -37,4 +37,25 @@ stories:
   - intent: deny
   - action: utter_new_request
   
+- story: check out standard
+  steps:
+  - intent: check_out
+  - action: utter_checkout_name
+  - intent: give_name
+  - action: utter_checkout_room
+  - intent: give_room_number
+  - action: utter_price_lookup
+  - checkpoint: checkout_price
+  
+- story: check out price fine
+  steps:
+  - checkpoint: checkout_price
+  - intent: affirm
+  - action: utter_thank_you_checkout
+  
+- story: check out price not fine
+  steps:
+  - checkpoint: checkout_price
+  - intent: deny
+  - action: utter_transfer
 

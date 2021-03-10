@@ -8,6 +8,13 @@ nlu:
     - I'm to checking in
     - I'd like to check in
     - checkin
+    - I'm here to check in
+- intent: check_out
+  examples: |
+    - Checking out
+    - I'm leaving
+    - checkout
+    - I'm here to check out
 - intent: give_name
   examples: |
     - [mark](res_first_name) [hamill](res_last_name)
@@ -26,6 +33,7 @@ nlu:
     - [sally](res_first_name) [johnson](res_last_name)
     - [jack](res_first_name) [flash](res_last_name)
     - it's [sally](res_first_name) [johnson](res_last_name)
+    - name is [tom](res_first_name) [jones](res_last_name)
 - intent: give_vehicle_description
   examples: |
     - I drive a [black](car_color) [hatchback] (car_type)
@@ -37,7 +45,15 @@ nlu:
   examples: |
     - yes I would
     - sure tell me
+    - looks good
 - intent: deny
   examples: |
     - no I don't have one
     - nah
+    - no
+- intent: give_room_number
+  examples: |
+    - room number is [\d{3}] (room_number)
+    - [\d{3}] (room_number)
+    - I was in [\d{3}] (room_number)
+    - 432

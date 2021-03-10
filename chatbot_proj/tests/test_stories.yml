@@ -67,7 +67,7 @@ stories:
     intent: deny
   - action: utter_standard_info_question
   - user: |
-      y
+      n
     intent: deny
   - action: utter_new_request
   
@@ -88,10 +88,29 @@ stories:
     intent: affirm
   - action: utter_vehicle_description
   - user: |
-      I have a [black](car_color) [hatchback](car_type)
+      I have a [black](car_color) [sedan](car_type)
     intent: give_vehicle_description
   - action: utter_standard_info_question
   - user: |
       no
     intent: deny
   - action: utter_new_request
+  
+- story: checkout standard
+  steps:
+  - user: |
+      I'm here to check out
+    intent: check_out
+  - action: utter_checkout_name
+  - user: |
+      name is [tom](res_first_name) [jones](res_last_name)
+    intent: give_name
+  - action: utter_checkout_room
+  - user: |
+      432
+    intent: give_room_number
+  - action: utter_price_lookup
+  - user: |
+      looks good
+    intent: affirm
+  - action: utter_thank_you_checkout
