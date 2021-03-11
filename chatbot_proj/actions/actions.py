@@ -107,3 +107,50 @@ class ActionHelloWorld(Action):
         dispatcher.utter_message(text=output)
 
         return []
+        
+class ActionLogCheckin(Action):
+
+    def name(self) -> Text:
+        return "action_log_checkin"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+        file_object = open('checkin.log', 'a')
+        car_type=tracker.get_slot("car_type")
+        car_color=tracker.get_slot("car_color")
+        if(car_color=="" and car_type==""):
+            file_object.write(tracker.get_slot("res_first_name")+" "+ tracker.get_slot("res_last_name") + " checked in with no car"+"\n")
+        elif(car_color!="" and car_type!=""):
+            file_object.write(tracker.get_slot("res_first_name")+" "+ tracker.get_slot("res_last_name") + " checked in with a "+car_color+" " +car_type+"\n")
+        else:
+            file_object.write(tracker.get_slot("res_first_name")+" "+ tracker.get_slot("res_last_name") + " checked in with a car, but we failed to get the type\n")
+
+        return []
+class ActionLogCheckoutGood(Action):
+
+    def name(self) -> Text:
+        return "action_log_checkout_good"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+        file_object = open('checkout.log', 'a')
+        file_object.write(tracker.get_slot("res_first_name")+" "+ tracker.get_slot("res_last_name") + " checked out of room "+tracker.get_slot("room_number"))
+
+        return []
+class ActionLogCheckoutBad(Action):
+
+    def name(self) -> Text:
+        return "action_log_checkout_bad"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+        file_object = open('checkout.log', 'a')
+        file_object.write(tracker.get_slot("res_first_name")+" "+ tracker.get_slot("res_last_name") + " checked out of room "+tracker.get_slot("room_number")+" but disputed the price")
+
+        return []

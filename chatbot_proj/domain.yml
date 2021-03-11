@@ -4,12 +4,12 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - give_room_number
-- affirm
+- deny
 - give_name
 - check_out
+- affirm
 - give_vehicle_description
 - check_in
-- deny
 - greet
 - goodbye
 - parking
@@ -31,6 +31,7 @@ intents:
 - mood_unhappy
 - park_my_car
 - valet_my_car
+- reset
 - fight:
     use_entities: []
 - reconcile:
@@ -60,6 +61,7 @@ entities:
 - name
 - res_first_name
 - res_last_name
+- room_number
 slots:
   cuisine:
     type: categorical
@@ -102,6 +104,9 @@ slots:
   car_type:
     type: text
     influence_conversation: true
+  room_number:
+    type: text
+    influence_conversation: true
   name:
     type: text
     influence_conversation: true
@@ -121,6 +126,9 @@ slots:
     type: bool
     influence_conversation: false
   has_mail:
+    type: bool
+    influence_conversation: true
+  price_ok:
     type: bool
     influence_conversation: true
   airport:
@@ -268,6 +276,9 @@ responses:
 actions:
 - action_check_mail
 - action_hello_world
+- action_log_checkin
+- action_log_checkout_bad
+- action_log_checkout_good
 - action_report_current_time
 - action_reset_airport
 - utter_car_question
@@ -281,7 +292,9 @@ actions:
 - utter_standard_info
 - utter_standard_info_question
 - utter_thank_you_checkout
+- utter_transfer
 - utter_vehicle_description
+- action_restarted
 forms:
   restaurant_form:
     cuisine:

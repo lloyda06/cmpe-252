@@ -26,6 +26,7 @@ stories:
       sure tell me
     intent: affirm
   - action: utter_standard_info
+  - action: action_log_checkin
   - action: utter_new_request
   
 - story: checkin no car standard info
@@ -48,6 +49,7 @@ stories:
       yes
     intent: affirm
   - action: utter_standard_info
+  - action: action_log_checkin
   - action: utter_new_request
   
 - story: checkin no car no standard info
@@ -69,6 +71,7 @@ stories:
   - user: |
       n
     intent: deny
+  - action: action_log_checkin
   - action: utter_new_request
   
 - story: checkin car no standard info
@@ -94,6 +97,7 @@ stories:
   - user: |
       no
     intent: deny
+  - action: action_log_checkin
   - action: utter_new_request
   
 - story: checkout standard
@@ -103,14 +107,35 @@ stories:
     intent: check_out
   - action: utter_checkout_name
   - user: |
-      name is [tom](res_first_name) [brown](res_last_name)
+      my name is [tom](res_first_name) [jones](res_last_name)
     intent: give_name
   - action: utter_checkout_room
   - user: |
-      room number [432] (room_number)
+      room number [432](room_number)
     intent: give_room_number
   - action: utter_price_lookup
   - user: |
       looks good
     intent: affirm
+  - action: action_log_checkout_good
   - action: utter_thank_you_checkout
+  
+- story: checkout bad path
+  steps:
+  - user: |
+      checking out
+    intent: check_out
+  - action: utter_checkout_name
+  - user: |
+      [rob](res_first_name) [stark](res_last_name)
+    intent: give_name
+  - action: utter_checkout_room
+  - user: |
+      [904](room_number)
+    intent: give_room_number
+  - action: utter_price_lookup
+  - user: |
+      no
+    intent: deny
+  - action: action_log_checkout_bad
+  - action: utter_transfer

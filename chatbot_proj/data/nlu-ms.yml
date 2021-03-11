@@ -34,9 +34,12 @@ nlu:
     - [jack](res_first_name) [flash](res_last_name)
     - it's [sally](res_first_name) [johnson](res_last_name)
     - name is [tom](res_first_name) [jones](res_last_name)
+    - [tom](res_first_name) [jones](res_last_name)
+    - [tom](res_first_name) [brown](res_last_name)
+    - [rob](res_first_name) [stark](res_last_name)
 - intent: give_vehicle_description
   examples: |
-    - I drive a [black](car_color) [hatchback] (car_type)
+    - I drive a [black](car_color) [hatchback](car_type)
     - [red](car_color) [sedan](car_type)
     - I'll have a [silver](car_color) [truck](car_type)
     - mine is a [blue](car_color) [coupe](car_type)
@@ -46,14 +49,23 @@ nlu:
     - yes I would
     - sure tell me
     - looks good
+    - y
 - intent: deny
   examples: |
     - no I don't have one
     - nah
     - no
+    - n
 - intent: give_room_number
   examples: |
-    - room number is [\d{3}] (room_number)
-    - [\d{3}] (room_number)
-    - I was in [\d{3}] (room_number)
-    - 432
+    - room number [333](room_number)
+    - [432](room_number)
+    - [167](room_number)
+    - [932](room_number)
+    - [376](room_number)
+    - [234](room_number)
+    - [567](room_number)
+    - [132](room_number)
+- intent: reset
+  examples: |
+    - reset
