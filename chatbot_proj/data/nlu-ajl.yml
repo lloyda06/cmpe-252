@@ -129,12 +129,7 @@ nlu:
     - tamales
     - tempura
     - fajita
-    - enchilada
-    - soba
-    - hand rolls
-    - udon
-    - sashimi
-    - miso
+    - enchiladas
 
 - intent: casual_family
   examples: |
@@ -150,6 +145,7 @@ nlu:
 - intent: bar
   examples: |
     - Sports
+    - watch the game
     - bar
     - late night
     - appetizers

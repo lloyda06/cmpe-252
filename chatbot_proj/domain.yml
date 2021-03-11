@@ -16,7 +16,9 @@ intents:
 - where_to_eat
 - italian
 - american
-- asian
+- japanese
+- chinese
+- mexican
 - casual_family
 - bar
 - fancy
