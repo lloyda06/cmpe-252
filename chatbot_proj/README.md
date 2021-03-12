@@ -26,8 +26,12 @@ Term Project for CMPE252 Team 10
     - Try to pick a fight (and then surrender to the mighty machine)
 - Food recommendations
     - Say you're hungry then answer questions about cuisine and atmosphere
+    - american, italian, japanese, chinese, mexican cuisines and popular foods in those categories should be recognized
+    - family/casual, bar, fancy atmospheres
 - Activity recommendations
     - Say you're bored then answer questions on activity type and cost
+    - outdoors (hiking, camping), relax (beach, spa), cultural (museum, art gallery)
+    - cheap/free or expensive/cost
 - Parking
     - Choose between self parking and valet
 
